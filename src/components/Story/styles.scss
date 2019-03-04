@@ -1,0 +1,33 @@
+body {
+  overscroll-behavior-y: none;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+
+  * {
+    box-sizing: border-box;
+  }
+}
+
+.base {
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.instruction {
+  color: white;
+  font-weight: bolder;
+
+  p {
+    color: white;
+    font-weight: bolder;
+  }
+
+  b {
+    font-weight: bolder;
+  }
+}

@@ -1,0 +1,41 @@
+$text-color: rgb(255, 123, 0);
+$text-depth-color: darken($text-color, 30%);
+
+.hint {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  color: $text-color;
+  text-align: center;
+  font-family: ABCSans, Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 38px;
+  text-shadow: 0 1px 0px lighten($text-color, 10%), 0 2px 0px $text-depth-color, 0 3px 0px $text-depth-color,
+    0 4px 0px $text-depth-color, 0 4px 5px black;
+}
+
+.sprite {
+  cursor: pointer;
+}
+
+.balloon {
+  animation: sine 2s ease infinite;
+  visibility: hidden;
+
+  &.chosen {
+    visibility: visible;
+  }
+}
+
+@keyframes sine {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(15px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}

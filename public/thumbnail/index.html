@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+  <head>
+    <base target="_parent" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+        background: black;
+      }
+
+      a {
+        display: block;
+      }
+
+      #thumbnail {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+      }
+
+      #pixels {
+        position: absolute;
+        width: 4000px;
+        height: 2000px;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -45%);
+      }
+
+      #background {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      #right {
+        position: absolute;
+        top: 950px;
+        left: 0;
+        width: 400px;
+        height: 550px;
+
+        animation-name: walkRight;
+        animation-duration: 9s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+      }
+
+      @keyframes walkRight {
+        0% {
+          left: 0px;
+        }
+        50% {
+          left: 3600px;
+        }
+        100% {
+          left: 3600px;
+        }
+      }
+
+      #left {
+        position: absolute;
+        top: 950px;
+        left: 0;
+        width: 400px;
+        height: 550px;
+
+        animation-name: walkLeft;
+        animation-duration: 9s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+      }
+
+      @keyframes walkLeft {
+        0% {
+          left: 3600px;
+        }
+        50% {
+          left: 3600px;
+        }
+        100% {
+          left: 0;
+        }
+      }
+
+      #overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(10, 11, 13, 0.5);
+      }
+
+      #title {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        max-height: 100%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <a id="thumbnail">
+      <div id="pixels">
+        <img id="background" src="./WarehouseAside.jpg" />
+        <img id="right" src="./WalkRight.gif" />
+        <img id="left" src="./WalkLeft.gif" />
+      </div>
+      <div id="overlay"></div>
+      <img id="title" src="./Title.png" />
+    </a>
+
+    <script>
+      function resize() {
+        document
+          .querySelector('#pixels')
+          .style.setProperty('transform', 'translate(-50%, -57%) scale(' + (window.innerWidth / 4000 + 0.3) + ')');
+      }
+      window.addEventListener('resize', resize);
+      resize();
+
+      function prefetch(url) {
+        if (
+          'connection' in navigator &&
+          ((navigator.connection.effectiveType || '').includes('2g') || navigator.connection.saveData)
+        ) {
+          return;
+        }
+
+        try {
+          var link = document.createElement('link');
+          if (!link.relList || typeof link.relList.supports !== 'function' || !link.relList.supports('prefetch')) {
+            throw new Error('nope');
+          }
+          link.rel = 'prefetch';
+          link.href = url;
+          document.head.appendChild(link);
+        } catch (err) {
+          var xhr = new XMLHttpRequest();
+          xhr.open('GET', url, true);
+          xhr.withCredentials = true;
+          xhr.send();
+        }
+      }
+
+      var target = (window.location.href.match(/originalLinkTarget=([^&]+)/) || [])[1];
+
+      if (target) {
+        thumbnail.href = target;
+        prefetch(target);
+      }
+    </script>
+  </body>
+</html>

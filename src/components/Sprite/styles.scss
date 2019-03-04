@@ -1,0 +1,13 @@
+.base {
+  overflow: hidden;
+  position: absolute;
+
+  img {
+    position: absolute;
+  }
+
+  &:focus {
+    // TODO: show hand pointer
+    // outline: 2px solid white;
+  }
+}

@@ -1,0 +1,33 @@
+.WalkRight {
+  animation-name: WalkRight;
+  animation-duration: 4.2s;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes WalkRight {
+  0% {
+    transform: translateX(-160px);
+  }
+  100% {
+    transform: translateX(1600px);
+  }
+}
+
+.WalkLeft {
+  animation-name: WalkLeft;
+  animation-duration: 4.2s;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes WalkLeft {
+  0% {
+    transform: translateX(1600px);
+  }
+  100% {
+    transform: translateX(-160px);
+  }
+}

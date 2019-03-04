@@ -1,0 +1,58 @@
+.base {
+  overflow: hidden;
+  position: relative;
+  background: #000;
+
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+  * {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+  }
+}
+
+.images {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.colouredBackground {
+  background: black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.title {
+  color: white;
+  font-family: ABCSans, Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-size: 40px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  text-align: center;
+}
+
+.sine {
+  animation: sine 2s ease infinite;
+}
+
+@keyframes sine {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(15px);
+  }
+  100% {
+    transform: translate(0px);
+  }
+}

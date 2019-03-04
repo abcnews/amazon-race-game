@@ -1,0 +1,16 @@
+.walkUp {
+  animation-name: walkUp;
+  animation-duration: 1.8s;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  opacity: 1;
+}
+
+@keyframes walkUp {
+  0% {
+    transform: translateY(450px);
+  }
+  99% {
+    transform: translateY(0);
+  }
+}

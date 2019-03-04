@@ -1,0 +1,15 @@
+.walkDown {
+  animation-name: walkDown;
+  animation-duration: 12s;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes walkDown {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(800px);
+  }
+}

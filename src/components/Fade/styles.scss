@@ -1,0 +1,25 @@
+.base {
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-shadow: inset 0 15px 150px rgba(10, 11, 13, 0.95);
+  transition: box-shadow 0.5s ease-in-out;
+  pointer-events: none;
+
+  @media screen and (max-width: 440px) {
+    transition: box-shadow 0.65s ease-in-out;
+  }
+
+  &.isFadedOut {
+    box-shadow: inset 0 0 1000px 1000px #0a0b0d;
+  }
+}
+
+.hud {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+
+  background: linear-gradient(rgba(10, 11, 13, 0.3), rgba(10, 11, 13, 0) 17%);
+}

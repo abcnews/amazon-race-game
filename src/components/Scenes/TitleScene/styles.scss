@@ -1,0 +1,53 @@
+.walkUp {
+  animation-name: walkUp;
+  animation-duration: 4s;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  opacity: 1;
+}
+
+@keyframes walkUp {
+  0% {
+    transform: translateY(300px);
+  }
+  99% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+}
+
+.flying {
+  animation-name: flying;
+  animation-duration: 3s;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes flying {
+  0% {
+    transform: translate(0);
+  }
+  100% {
+    transform: translate(-500px, -350px);
+  }
+}
+
+.sine {
+  animation: sine 2s ease infinite;
+}
+
+@keyframes sine {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(15px);
+  }
+  100% {
+    transform: translate(0px);
+  }
+}

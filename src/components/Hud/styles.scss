@@ -1,0 +1,177 @@
+.base {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.content {
+  max-width: 500px;
+  margin: auto;
+  position: relative;
+}
+
+.logo {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+
+  transition: transform 0.3s ease, left 0.3s ease;
+
+  a {
+    color: rgba(255, 255, 255, 0.4);
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    svg {
+      vertical-align: middle;
+      margin-right: 2px;
+    }
+
+    g {
+      fill: rgba(255, 255, 255, 0.4);
+      transition: fill 0.3s ease;
+    }
+
+    &:hover {
+      color: white;
+      g {
+        fill: white;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 440px) {
+    &.pickRateVisible {
+      left: 50%;
+      transform: translateX(-50%) scale(0.8);
+    }
+  }
+}
+
+.label {
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: ABCSans, Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+.pickRate {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  transform: translateY(-100px);
+  transition: transform 0.4s ease;
+
+  .pickRates {
+    margin-top: 4px;
+  }
+}
+
+.pickRateVisible {
+  .pickRate {
+    transform: translateY(0);
+  }
+}
+
+.timer {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  text-align: right;
+
+  .label {
+    transform: translateY(-100px);
+    transition: transform 0.2s ease;
+  }
+
+  .time {
+    color: white;
+    font-family: ABCSans, Helvetica, Arial, sans-serif;
+    font-variant-numeric: tabular-nums;
+    font-size: 26px;
+    letter-spacing: 3px;
+    line-height: 26px;
+    font-weight: 900;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+    transform: translateY(-100px);
+  }
+}
+
+.timerVisible {
+  .label {
+    transform: translateY(0);
+  }
+
+  .time {
+    transform: translateY(0);
+  }
+}
+
+.message {
+  position: absolute;
+  top: 10px;
+  right: -20px;
+  font-family: ABCSans, Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  letter-spacing: 1.7px;
+  padding: 5px 20px;
+  border-radius: 20px;
+
+  animation-name: inAndOut;
+  animation-duration: 4s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease;
+
+  @media screen and (max-width: 440px) {
+    right: -20px;
+    padding-right: 35px;
+  }
+}
+
+@keyframes inAndOut {
+  0% {
+    opacity: 0;
+    transform: translateX(200px);
+  }
+  10% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  90% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(200px);
+  }
+}
+
+.flash {
+  display: inline-block;
+  margin-right: 10px;
+  margin-top: -7px;
+  vertical-align: middle;
+
+  animation-name: flash;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes flash {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
