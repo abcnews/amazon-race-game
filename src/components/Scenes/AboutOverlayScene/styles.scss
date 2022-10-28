@@ -104,6 +104,10 @@
         padding: 0;
         margin-bottom: 12px;
 
+        span[class] {
+          display: none;
+        }
+
         &:last-of-type {
           margin-top: 30px;
         }
@@ -127,7 +131,6 @@
 
   a {
     color: #00c1ef;
-    text-decoration: underline;
   }
 
   @media only screen and (max-width: 440px) {
