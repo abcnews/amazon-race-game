@@ -1,5 +1,6 @@
 require('regenerator-runtime/runtime');
 
+import { requestDOMPermit } from '@abcnews/env-utils'
 import React from 'react';
 import { render } from 'react-dom';
 import App from './components/App';
@@ -11,4 +12,4 @@ function init() {
   });
 }
 
-init();
+requestDOMPermit('page').then(init);

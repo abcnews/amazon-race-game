@@ -1,5 +1,7 @@
+import { selectMounts, getMountValue } from '@abcnews/mount-utils'
+
 export function getNodesBetweenMarkers(marker) {
-  const openMarker = document.querySelector(`a[name=${marker}]`);
+  const [openMarker] = selectMounts(marker);
 
   if (!openMarker) return [];
 
@@ -12,7 +14,7 @@ export function getNodesBetweenMarkers(marker) {
       node = node.nextSibling;
       continue;
     }
-    if ((node.getAttribute('name') || '').indexOf('end' + marker) > -1) {
+    if (getMountValue(node).indexOf('end' + marker) > -1) {
       hasMoreContent = false;
     } else {
       nodes.push(node);
@@ -26,14 +28,12 @@ export function getNodesBetweenMarkers(marker) {
   return nodes;
 }
 
-export function createMountNode() {
-  // Remove everything from the underlying article
-  const body = document.querySelector('body');
-  [].slice.apply(body.children).forEach(el => body.removeChild(el));
+export function resetMountNode() {
+  const mountNode = document.querySelector('[data-component="Decoy"][data-key="page"]');
 
-  // Create a new node to mount the app on
-  const mountNode = document.createElement('div');
-  body.appendChild(mountNode);
+  // Remove everything from the underlying article
+  [].slice.apply(mountNode.children).forEach(el => mountNode.removeChild(el));
+
   return mountNode;
 }
 
@@ -88,6 +88,6 @@ export function prepare(callback) {
   window.__ARTICLE_LINK = document.querySelector('a[title="Read more"]').href;
 
   loadEmojis(() => {
-    callback(createMountNode());
+    callback(resetMountNode());
   });
 }
