@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
-import * as Keyshape from 'react-keyshape/dist/Keyshape';
-import styles from './styles.scss';
-import TapHint from './TapHint.svg';
-import KeyHint from './KeyHint.svg';
+import Keyshape from 'react-keyshape/dist/Keyshape';
 
-import Scene from '../Scene';
 import { Home } from '../../assets';
+import MAP_IMAGE_SRC from '../../assets/Map.png';
+import PICK_IMAGE_SRC from '../../assets/PickIsHere.png';
+import YOU_IMAGE_SRC from '../../assets/You.png';
+
 import Knot from '../Knot';
+import Scene from '../Scene';
+
+import KeyHint from './KeyHint.svg';
+import TapHint from './TapHint.svg';
+import styles from './styles.scss';
+
 
 const noop = () => {};
 
@@ -28,13 +34,13 @@ export default class Warehouse extends Component {
 
     this.mapImage = document.createElement('img');
     this.mapImage.onload = e => (this.hasMapLoaded = true);
-    this.mapImage.src = require('../../assets/Map.png');
+    this.mapImage.src = MAP_IMAGE_SRC;
 
     this.youImage = document.createElement('img');
-    this.youImage.src = require('../../assets/You.png');
+    this.youImage.src = YOU_IMAGE_SRC;
 
     this.pickImage = document.createElement('img');
-    this.pickImage.src = require('../../assets/PickIsHere.png');
+    this.pickImage.src = PICK_IMAGE_SRC;
   }
 
   componentDidMount() {

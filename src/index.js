@@ -1,4 +1,4 @@
-require('regenerator-runtime/runtime');
+import 'regenerator-runtime/runtime';
 
 import { requestDOMPermit } from '@abcnews/env-utils'
 import React from 'react';
