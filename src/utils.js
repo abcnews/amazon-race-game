@@ -85,7 +85,13 @@ export function prepare(callback) {
     window.__PUBLISHED_AT = `${day} ${num} ${month} ${year}, ${h % 12}:${m} ${ampm} AEDT`.toUpperCase();
   }
 
-  window.__ARTICLE_LINK = document.querySelector('a[title="Read more"]').href;
+  getNodesBetweenMarkers('articlelink').forEach(el => {
+    const linkEl = el.querySelector('a[href]');
+
+    if (linkEl) {
+      window.__ARTICLE_LINK = linkEl.href;
+    }
+  });
 
   loadEmojis(() => {
     callback(resetMountNode());
