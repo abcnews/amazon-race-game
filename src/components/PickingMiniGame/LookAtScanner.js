@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
+import Keyshape from 'react-keyshape/dist/Keyshape';
 import { Scanner, Home } from '../../assets';
-import { Keyshape } from 'react-keyshape';
 import TapHint from './TapHint.svg';
 import KeyHint from './KeyHint.svg';
 import styles from './styles.scss';
