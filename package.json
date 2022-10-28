@@ -12,7 +12,8 @@
     "type": "react"
   },
   "scripts": {
-    "start": "./build.sh && aunty serve",
+    "build:assets": "./build.sh",
+    "start": "aunty serve",
     "test": "aunty test",
     "deploy": "nt build --target=contentftp && nt deploy"
   },
