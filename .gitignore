@@ -2,8 +2,7 @@
 /node_modules
 
 # builds
-/.build
-/.deploy
+/.aunty
 
 # misc
 .DS_Store

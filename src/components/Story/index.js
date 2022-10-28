@@ -1,8 +1,8 @@
+import { Client } from '@abcnews/poll-counters-client';
 import React from 'react';
 import styles from './styles.scss';
 
 import Story from './Story';
-import { Client } from '../../poll-counter';
 
 import Fade from '../Fade';
 import Knot from '../Knot';

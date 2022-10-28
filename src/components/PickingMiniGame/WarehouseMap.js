@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Keyshape } from 'react-keyshape';
+import * as Keyshape from 'react-keyshape/dist/Keyshape';
 import styles from './styles.scss';
 import TapHint from './TapHint.svg';
 import KeyHint from './KeyHint.svg';
