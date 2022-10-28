@@ -17,12 +17,10 @@ export default class LunchScene extends Component {
     }
     if (story.get('variant') === 'is_watching') {
       animation = 'phoneShare1';
-      if (typeof window.__VIDEO_URL !== 'undefined') {
-        onClick = () => {
-          client.increment({ question: 'day_2_lunch', answer: 'Watched the actual video' });
-          window.open(window.__VIDEO_URL, '_blank');
-        };
-      }
+      onClick = () => {
+        client.increment({ question: 'day_2_lunch', answer: 'Watched the actual video' });
+        window.open('https://www.youtube.com/watch?v=-N6l3KUe_Mw', '_blank');
+      };
     }
 
     return (
